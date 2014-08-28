@@ -1,0 +1,51 @@
+//- TWO COL LAYOUT
+doctype
+html
+	//- Set all the default page variables here
+	- var pageTitle = 'Default Title'
+	- var pageDesc = 'Default Desc'
+	- var pageName = 'default'
+	head
+		//- Override page variables
+		block pageVars
+		//- Add any dependencies like modernizr goes in the below block
+		block pageHeadBefore
+		//- Head include containing the CSS files
+		include ../includes/head.jade
+		//- Add any overrides for CSS goes here
+		block pageHeadAfter
+	body
+		|<!-- page container for #{pageName} -->
+		div(id='container' class=['container',pageName])
+			div.row
+				div.col-xs-12
+					//- Header Content Block Placeholder
+					// Header Content
+					header.row
+						div.col-xs-12
+							block headerContent
+					// End Header Content
+
+					//- Main Content Block Placeholder
+					// Main Content
+					main.row
+						aside(class=['col-xs-12','col-sm-3'])
+							block asideContent
+						section(class=['col-xs-12','col-sm-9'])
+							block mainContent		
+					// End Main Content
+
+					//- Footer Content Block Placeholder
+					// Footer Content
+					footer.row
+						div.col-xs-12
+							block footerContent
+					// End Footer Content
+
+		// Scripts go here
+		//- Add any dependencies scripts					
+		block pageScriptsBefore
+		//- Add all used scripts here
+		include ../includes/scripts.jade
+		//- Add any additional scripts
+		block pageScriptsAfter
